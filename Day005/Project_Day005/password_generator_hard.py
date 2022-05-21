@@ -14,7 +14,7 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 total = nr_numbers + nr_symbols + nr_letters
 password = ""
 
-while len(password) < total:
+while len(password) < total:                            
     option = random.randint(0, 2)
     if option == 0 and nr_letters > 0:
         password += random.choice(letters)
