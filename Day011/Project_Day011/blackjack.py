@@ -42,6 +42,7 @@ def blackjack():
     computer = get_cards(2)
     print(f'Your cards: {player_hand}, current score: {player_score}')
     print(f"Computer's first card {computer[0]}")
+
     # Dealing more cards to the player
     while True:
         get_more = input("Type 'y' to get another card, type 'n' to pass: ").lower()[0]
