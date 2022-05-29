@@ -26,10 +26,13 @@ def main():
     a = get_player(already_useded)
     while True:
         b = get_player(already_useded)
+
         print(f'Compare A: {a["name"]}, {a["description"]}, from {a["country"]}')
         print(vs)
         print(f'Against B: {b["name"]}, {b["description"]}, from {b["country"]}')
+
         guess = input("Who has more followers? 'A' or 'B': ").lower()[0]
+        
         if comparing(a, b, guess):
             a = b
             score += 1
