@@ -1,17 +1,18 @@
 def quantidades(v, my_list, txt):
     for i in range(len(my_list)):
         quant = v // my_list[i]
-        print(f'{int(quant)} {txt} {my_list[i]:.2f}')
+        print(f'{int(quant)} {txt} {my_list[i] / 100:.2f}')
         v -= quant * my_list[i]
     return v
 
-valor = float(input())
 
-notas = (100, 50, 20, 10, 5, 2)
-moedas = (1, 0.50, 0.25, 0.10, 0.05, 0.01)
+valor = float(input())
+decomposicao = round(valor * 100)
+
+notas = (10000, 5000, 2000, 1000, 500, 200)
+moedas = (100, 50, 25, 10, 5, 1)
 
 print('NOTAS:')
-valor = quantidades(valor, notas, 'nota(s) de R$') + 0.00000000000005
-print(valor)
+decomposicao = quantidades(decomposicao, notas, 'nota(s) de R$')
 print('MOEDAS:')
-quantidades(valor, moedas, 'moeda(s) de R$')
+quantidades(decomposicao, moedas, 'moeda(s) de R$')

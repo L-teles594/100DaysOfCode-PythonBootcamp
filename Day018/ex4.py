@@ -1,27 +1,19 @@
-import turtle as t
-from random import choice, randint
-
-# Drawing 8 different shapes in 8 different colors challenge
-
-
-tim = t.Turtle()
-tim.pensize(10)
-direction = (0, 90, 180, 270)
-tim.speed(10)
-t.colormode(255)
-
-def random_color():
-    red = randint(0, 255)
-    green = randint(0, 255)
-    blue = randint(0, 255)
-    return red, green, blue
+def quantidades(v, my_list, txt):
+    for i in range(len(my_list)):
+        quant = v // (my_list[i] * 100)
+        print(f'{int(quant)} {txt} {my_list[i]:.2f}')
+        v -= quant * my_list[i] * 100
+    return v
 
 
-for _ in range(500):
-    tim.pencolor(random_color())
-    tim.setheading(choice(direction))
-    tim.forward(20)
+valor = float(input())
+decomposicao = round(valor * 100)
+print(decomposicao)
+notas = (100, 50, 20, 10, 5, 2)
+moedas = (1, 0.50, 0.25, 0.10, 0.05, 0.01)
 
-
-my_screen = t.Screen()
-my_screen.exitonclick()
+print('NOTAS:')
+valor = quantidades(decomposicao, notas, 'nota(s) de R$')
+print(valor)
+print('MOEDAS:')
+quantidades(decomposicao, moedas, 'moeda(s) de R$')
