@@ -15,12 +15,16 @@ game_is_on = True
 while game_is_on:
     screen.update()
 
-    guess = screen.textinput(f'States Correct {score.score}/{len(states.states)}', "What's another state name?").capitalize()
+    guess = screen.textinput(f'States Correct {score.score}/{len(states.states)}', "What's another state name?").title()
+
     for state in states.states:
+        if guess in states.guessed_states:
+            continue
         if state.name == guess:
             state.goto(state.pos())
             state.write(f'{state.name}')
             score.increase()
+            states.get_guessed(guess)
             if score.is_over():
                 game_is_on = False
 
